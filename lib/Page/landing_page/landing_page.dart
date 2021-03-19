@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:kinoverse/app.dart';
+import 'package:kinoverse/common/common_route.dart';
 import 'package:kinoverse/model/slider_item.dart';
 
-import 'LandingPageModel.dart';
+import 'landing_page_model.dart';
+
 
 class LandingPage extends StatefulWidget {
   @override
@@ -23,12 +25,14 @@ class LandingPageState extends State<LandingPage> {
       backgroundColor: bgColor,
       body: SafeArea(
         child: Container(
+          padding: EdgeInsets.only(top: 60),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Center(
                 child: Image.asset(
                   App.logo,
+                  width: MediaQuery.of(context).size.height * 0.4,
                 ),
               ),
               Expanded(
@@ -61,39 +65,34 @@ class LandingPageState extends State<LandingPage> {
                             model.title[index],
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: txtColor,
                               fontWeight: FontWeight.w700,
-                              //fontFamily: App.font_name,
-
-                              //  fontFamily: App.font_name1,
+                              fontFamily: App.font2,
                               fontSize: 14,
                             ),
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 20),
+                          margin: EdgeInsets.only(top: 15, left: 50, right: 50),
                           child: Text(
                             model.subTitle[index],
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: txtDescriptionColor,
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
-
                             ),
                           ),
                         ),
                       ],
                     );
                   },
-                  // pagination: SwiperPagination(margin: new EdgeInsets.all(5.0),
-                  // ),
                   pagination: new SwiperPagination(
-                    margin: EdgeInsets.only(top: 16),
+                    margin: EdgeInsets.only(bottom: 35),
                     builder: new DotSwiperPaginationBuilder(
-                      color: Colors.white,
-                      activeColor: btnColor,
-                      activeSize: 10.0,
+                      color: btnColor,
+                      activeColor: txtColor,
+                      activeSize: 8.0,
                     ),
                   ),
                 ),
@@ -114,7 +113,13 @@ class LandingPageState extends State<LandingPage> {
       child: Column(
         children: [
           loginButton(),
-          Button(),
+          Container(
+            padding: EdgeInsets.only(top: 10, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [newText(), signUp()],
+            ),
+          )
         ],
       ),
     );
@@ -137,9 +142,7 @@ class LandingPageState extends State<LandingPage> {
             child: Text(
               'Login',
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700),
+                  color: txtColor, fontSize: 16, fontWeight: FontWeight.w700),
             ),
           ),
         ),
@@ -147,19 +150,26 @@ class LandingPageState extends State<LandingPage> {
     );
   }
 
-  Widget Button() {
-    return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          // CommonRoutePage().gotoSignUpPage(context);
-        },
-        child: Center(
-          child: Text(
-            'New to the Kinoverse? Sign Up',
-            style: TextStyle(
-                color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700),
-          ),
-        ),
+  Widget newText() {
+    return Text(
+      'New to the Kinoverse?   ',
+      style: TextStyle(
+          color: txtColor,
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          fontFamily: App.font2),
+    );
+  }
+
+  Widget signUp() {
+    return GestureDetector(
+      onTap: () {
+        CommonRoutePage().gotoSignUp(context);
+      },
+      child: Text(
+        'Sign Up',
+        style: TextStyle(
+            color: txtColor, fontSize: 12, fontWeight: FontWeight.w700),
       ),
     );
   }

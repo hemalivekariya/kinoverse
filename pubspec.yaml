@@ -55,7 +55,11 @@ flutter:
         - asset: assets/fonts/CourierPrime-BoldItalic.ttf
         - asset: assets/fonts/CourierPrime-Italic.ttf
         - asset: assets/fonts/CourierPrime-Regular.ttf
-
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+        - asset: assets/fonts/Ubuntu-Medium.ttf
+        - asset: assets/fonts/Ubuntu-Bold.ttf
 
 
   # To add assets to your application, add an assets section, like this:

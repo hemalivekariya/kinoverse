@@ -4,7 +4,9 @@ bool isLight = true;
 
 class App {
 
-  static const font_name = "Courier Prime";
+  static const font1 = "Courier Prime";
+  static const font2 = "Ubuntu";
+
   static const root = 'assets/image/';
   static const logo = '$root' + 'logo.png';
   static const landing1 = '$root' + 'landing1.png';
@@ -31,13 +33,7 @@ class App {
   }
 }
 
-getColorLabel() {
-  if (isLight) {
-    return colorTextHead;
-  } else {
-    return Colors.white;
-  }
-}
+
 
 getColorIcon() {
   if (isLight) {
@@ -65,8 +61,10 @@ getMatColorBg() {
 
 Color bgColor = Color(0x00ff3E4346);
 Color btnColor = Color(0x00ffA60000);
-Color colorTextHead = Color(0x00ff191B21);
+Color txtColor = Color(0x00ffF5F5F5);
+Color txtDescriptionColor = Color(0x00ff929292);
 Color colorWhite = Color(0x00ffF7F7FA);
+Color btnBorderWhite = Color(0x00ff929292);
 
 Color colorBrown = Colors.brown;
 Color colorTextPara = Color(0x00ff73777F);
@@ -104,16 +102,4 @@ getColorBorder() {
   }
 }
 
-getTextStyle(
-    {Color color,
-    double size,
-    FontWeight fontWeight,
-    TextDecoration textDecoration,
-    double height}) {
-  return TextStyle(
-      fontSize: size ?? 14,
-      fontFamily: App.font_name,
-      decoration: textDecoration ?? TextDecoration.none,
-      fontWeight: fontWeight ?? FontWeight.w400,
-      color: color ?? getColorLabel());
-}
+

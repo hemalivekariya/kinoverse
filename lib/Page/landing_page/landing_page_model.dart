@@ -1,5 +1,5 @@
-import '../app.dart';
-import 'LandingPage.dart';
+import '../../app.dart';
+import 'landing_page.dart';
 
 class LandingPageViewModel {
   LandingPageState state;

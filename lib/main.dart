@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import 'Page/LandingPage.dart';
+import 'package:kinoverse/Page/landing_page/landing_page.dart';
 import 'app.dart';
 
 void main() {
@@ -23,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       },
       child: MaterialApp(
         theme: ThemeData(
-          fontFamily: App.font_name,
+          fontFamily: App.font1,
         ),
         home: LandingPage(),
         debugShowCheckedModeBanner: false,
